@@ -1,8 +1,8 @@
 #include<iostream>
 #include<string>
 #include<deque> 
-#include<algorithm>  //±ê×¼Ëã·¨
-#include <stdlib.h>  //²úÉúËæ»úÊıµÄÍ·ÎÄ¼ş        #include <stdio.h> 
+#include<algorithm>  //æ ‡å‡†ç®—æ³•
+#include <stdlib.h>  //äº§ç”Ÿéšæœºæ•°çš„å¤´æ–‡ä»¶        #include <stdio.h> 
 #include <time.h> 
 using namespace std;
 //class ph          
@@ -22,12 +22,12 @@ using namespace std;
 //	this->score = score;
 //}
 //
-//void lay(deque<ph>&player)   //½«Êı¾İ·ÅÈëÈİÆ÷ÖĞ
+//void lay(deque<ph>&player)   //å°†æ•°æ®æ”¾å…¥å®¹å™¨ä¸­
 //{
 //	string name= "ABCDE";
 //	for (int i = 0; i < 5; i++)
 //	{
-//		string Player = "Ñ¡ÊÖ";
+//		string Player = "é€‰æ‰‹";
 //		Player += name[i];
 //		int score = 0;
 //		ph p(Player, score);
@@ -35,26 +35,26 @@ using namespace std;
 //	}
 //}
 //
-//void setscore(deque<ph>&player)   //´ò·Ö    
+//void setscore(deque<ph>&player)   //æ‰“åˆ†    
 //{
-//	for (deque<ph>::iterator nb = player.begin(); nb != player.end(); nb++)   //´óÈİÆ÷
+//	for (deque<ph>::iterator nb = player.begin(); nb != player.end(); nb++)   //å¤§å®¹å™¨
 //	{
 //	   deque<int>d;  
-//	     for (int i = 0; i < 10; i++)   //ÆÀÎ¯´òµÄ·Ö
+//	     for (int i = 0; i < 10; i++)   //è¯„å§”æ‰“çš„åˆ†
 //	    { 
 //		d.push_back(rand() % 40 + 60);
 //	    }
-//		 sort(d.begin(), d.end());  //ÅÅĞò
+//		 sort(d.begin(), d.end());  //æ’åº
 //		 d.pop_front();
 //		 d.pop_back();
 //		 float number = 0;
-//		 for (int i = 0; i <d.size(); i++)   // Æ½¾ù·Ö
+//		 for (int i = 0; i <d.size(); i++)   // å¹³å‡åˆ†
 //		 {
 //			 number += d.at(i);
 //		 }
 //
 //		 (*nb).score =number/d.size();
-//		 cout<< (*nb).name<<":Æ½¾ù·ÖÎª£º"<<(*nb).score;
+//		 cout<< (*nb).name<<":å¹³å‡åˆ†ä¸ºï¼š"<<(*nb).score;
 //		 cout << endl;
 //	}
 //	 
@@ -63,7 +63,7 @@ using namespace std;
 //
 //int main()                               
 //{ 
-//	srand(time(NULL)*100+12);     //ÎªËæ»úÊıµÄÉú³ÉÌá¹©Ò»¸öÆğÊ¼µã
+//	srand(time(NULL)*100+12);     //ä¸ºéšæœºæ•°çš„ç”Ÿæˆæä¾›ä¸€ä¸ªèµ·å§‹ç‚¹
 //	deque<ph>player;
 //	lay(player);
 //	setscore(player);
@@ -71,11 +71,11 @@ using namespace std;
 //	 
 //	 
 //}
-////ÆÀÎ¯´ò·Ö×Ü½á·û
+////è¯„å§”æ‰“åˆ†æ€»ç»“ç¬¦
 
 
 
-template <typename A, typename B>
+template <typename A, typename B>  //åˆ©ç”¨ç±»æ¨¡ç‰ˆ
 class ph
 {
 public:
@@ -94,7 +94,7 @@ ph<typename A, typename B>::ph(A name, B score)
 	this->name = name;
 	this->score=score;
 }
-                                                        //¾Ö²¿±äÁ¿ÔÚ×÷ÓÃÓò½áÊøÊ±»á×Ô¶¯ÊÍ·Å
+                                                        //å±€éƒ¨å˜é‡åœ¨ä½œç”¨åŸŸç»“æŸæ—¶ä¼šè‡ªåŠ¨é‡Šæ”¾
 void people(deque<ph<char, int>>&v)
 {
 	deque<char>letter;
@@ -105,12 +105,12 @@ void people(deque<ph<char, int>>&v)
 	}
 	for (int i=0; i < 5; i++)
 	{
-		ph<char, int>person(letter.at(i), 0);  //ÊµÀı»¯¶ÔÏó
-		v.push_back(person);   //²åÈëÊı¾İ
+		ph<char, int>person(letter.at(i), 0);  //å®ä¾‹åŒ–å¯¹è±¡
+		v.push_back(person);   //æ’å…¥æ•°æ®
 	}
 }
 
-void Judges(deque<ph<char, int>>& v)   //²ÃÅĞ´ò·Ö
+void Judges(deque<ph<char, int>>& v)   //è£åˆ¤æ‰“åˆ†
 {
 	for (deque<ph<char, int>>::iterator nb = v.begin(); nb != v.end(); nb++)
 	{
@@ -118,18 +118,18 @@ void Judges(deque<ph<char, int>>& v)   //²ÃÅĞ´ò·Ö
 		for (int i = 0; i < 10; i++)
 		{
 
-			number.push_back(rand() % 40 + 60);  //atº¯Êı·µ»Ø¸ÃÔªËØµÄÒıÓÃ
+			number.push_back(rand() % 40 + 60);  //atå‡½æ•°è¿”å›è¯¥å…ƒç´ çš„å¼•ç”¨
 		}
 		sort(number.begin(), number.end());
-		number.pop_front();  //Í·É¾
-		number.pop_back();   //Î²É¾
+		number.pop_front();  //å¤´åˆ 
+		number.pop_back();   //å°¾åˆ 
 		float num = 0;
 		for (int i = 0; i < number.size(); i++)
 		{
 			num += number.at(i);
 		}
 
-		cout << (*nb).name<< "·ÖÊı£º"<<num/number.size()<<endl;
+		cout << (*nb).name<< "åˆ†æ•°ï¼š"<<num/number.size()<<endl;
 	}
 }
 
